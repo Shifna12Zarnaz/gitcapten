@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: my-task
+spec:
+  params:
+    - name: input-value
+      type: string
+  steps:
+    - name: my-step
+      image: my-image
+      command: [sh, -c]
+      args: ["echo Input value: $(inputs.params.input-value)"]
+
